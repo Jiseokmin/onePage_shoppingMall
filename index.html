@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+
+    <title>원페이지 쇼핑몰</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Jua', sans-serif;
+        }
+
+        .item-wrap {
+            margin: auto;
+            width: 400px;
+        }
+
+        .item-wrap .item {
+            width: 100%;
+            margin: 20px 0 20px;
+        }
+
+        .item-wrap .item-price {
+            font-size: 12px;
+        }
+        .item-wrap .btn-buy {
+            width: 78.17px;
+            margin: auto;
+        }
+    </style>
+    <script>
+        function clickBuyBtn() {
+            alert("주문이 완료되었습니다!");
+        }
+    </script>
+</head>
+
+<body>
+<div class="item-wrap">
+    <img class="item"
+         src="data:image/jpeg;base64,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">
+
+    <h2>양초를 팝니다!<small class="item-price"> 가격: 3000원 / 개</small></h2>
+    <p>이 양초는 사실 특별한 힘을 가지고 있대요. 양초를 켜고 소원을 빌면 요술램프 지니 대신 산타 클로스 할아버지 나와 뭐든지 이뤄지게 된답니다.</p>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon_name">주문자 이름</span>
+        </div>
+        <input type="text" class="form-control"
+               aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">수량</label>
+        </div>
+        <select class="custom-select" id="inputGroupSelect01">
+            <option selected>--수량을 선택하세요!--</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon_address">주소</span>
+        </div>
+        <input type="text" class="form-control"
+               aria-describedby="basic-addon1">
+    </div>
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon_phone-num">전화번호</span>
+        </div>
+        <input type="text" class="form-control"
+               aria-describedby="basic-addon1">
+    </div>
+    <div class="btn-buy">
+        <button onclick="clickBuyBtn()" type="button" class="btn btn-primary">주문하기</button>
+    </div>
+
+</div>
+</body>
+
+</html>
