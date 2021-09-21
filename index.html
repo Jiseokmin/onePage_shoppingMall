@@ -37,15 +37,32 @@
             margin: 20px 0 20px;
         }
 
+        .item-wrap .dollar-rate {
+            color: blue;
+        }
+
         .item-wrap .item-price {
             font-size: 12px;
         }
+
         .item-wrap .btn-buy {
             width: 78.17px;
             margin: auto;
         }
     </style>
     <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "GET",
+                url: "http://spartacodingclub.shop/sparta_api/rate",
+                data: {},
+                success: function (response) {
+                    let temp_html = `<span>달러-원 활율 : ${response['rate']}</span>`
+                    $('.dollar-rate').append(temp_html);
+                }
+            })
+        });
+
         function clickBuyBtn() {
             alert("주문이 완료되었습니다!");
         }
@@ -59,6 +76,7 @@
 
     <h2>양초를 팝니다!<small class="item-price"> 가격: 3000원 / 개</small></h2>
     <p>이 양초는 사실 특별한 힘을 가지고 있대요. 양초를 켜고 소원을 빌면 요술램프 지니 대신 산타 클로스 할아버지 나와 뭐든지 이뤄지게 된답니다.</p>
+    <p class="dollar-rate"></p>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon_name">주문자 이름</span>
