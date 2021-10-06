@@ -49,6 +49,9 @@
             width: 78.17px;
             margin: auto;
         }
+        .table {
+            margin-top: 20px;
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -61,10 +64,46 @@
                     $('.dollar-rate').append(temp_html);
                 }
             })
+
+            $.ajax({
+                type: "GET",
+                url: "/order",
+                data: {},
+                success: function (response) {
+                    let orders = response['all_orders']
+                        for (let i = 0; i < orders.length; i++) {
+                            let name = orders[i]['name']
+                            let volume = orders[i]['volume']
+                            let address = orders[i]['address']
+                            let number = orders[i]['number']
+
+                            let temp_html = `<tr>
+                                                <th scope="col">${name}</th>
+                                                <th scope="col">${volume}</th>
+                                                <th scope="col">${address}</th>
+                                                <th scope="col">${number}</th>
+                                            </tr>`
+                            $('#orders-box').append(temp_html)
+                        }
+                }
+            })
         });
 
         function clickBuyBtn() {
-            alert("주문이 완료되었습니다!");
+            $.ajax({
+                type: "POST",
+                url: "/order",
+                data: {
+                    name_give: $('#name').val(),
+                    volume_give: $('#inputGroupSelect01').val(),
+                    address_give: $('#address').val(),
+                    number_give: $('#number').val()
+                },
+                success: function (response) {
+                    alert(response["msg"]);
+                    window.location.reload();
+                }
+            })
         }
     </script>
 </head>
@@ -82,7 +121,7 @@
             <span class="input-group-text" id="basic-addon_name">주문자 이름</span>
         </div>
         <input type="text" class="form-control"
-               aria-describedby="basic-addon1">
+               aria-describedby="basic-addon1" id="name">
     </div>
 
     <div class="input-group mb-3">
@@ -102,7 +141,7 @@
             <span class="input-group-text" id="basic-addon_address">주소</span>
         </div>
         <input type="text" class="form-control"
-               aria-describedby="basic-addon1">
+               aria-describedby="basic-addon1" id="address">
     </div>
 
     <div class="input-group mb-3">
@@ -110,11 +149,24 @@
             <span class="input-group-text" id="basic-addon_phone-num">전화번호</span>
         </div>
         <input type="text" class="form-control"
-               aria-describedby="basic-addon1">
+               aria-describedby="basic-addon1" id="number">
     </div>
     <div class="btn-buy">
         <button onclick="clickBuyBtn()" type="button" class="btn btn-primary">주문하기</button>
     </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">이름</th>
+            <th scope="col">수량</th>
+            <th scope="col">주소</th>
+            <th scope="col">전화번호</th>
+        </tr>
+        </thead>
+        <tbody id="orders-box">
+        </tbody>
+    </table>
 
 </div>
 </body>
