@@ -9,4 +9,5 @@ Flask, MongoDB를 활용한 원페이지 쇼핑몰
   - ajax get function
   
 2. '주문하기' 버튼 클릭 시 주문목록 나열
-  - 줌ㄴ
+  - 주문하기 -> POST 
+  - 주문목록 뿌려주기 -> GET (mongoDB)
